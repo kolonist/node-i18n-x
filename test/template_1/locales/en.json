@@ -1,0 +1,14 @@
+{
+    "lang": "en",
+    "title": "Page title 1",
+    "node-i18n-x test page": "Test page of node-i18n-x 1",
+    "try these links:": "Try these links 1:",
+    "default lang": "Default language 1",
+    "manually set default lang": "Manually set default language 1",
+    "russian lang": "Russian localization 1",
+    "russian lang domain": "Russion lang on subdomain 1",
+    "default domain": "Default domain 1",
+    "current locale:": "Current locale 1:",
+    "another path": "Another path 1",
+    "another path ru": "Another path, russian language 1"
+}

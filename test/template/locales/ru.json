@@ -1,0 +1,14 @@
+{
+    "lang": "ru",
+    "title": "Заголовок страницы",
+    "node-i18n-x test page": "Тестовая страница библиотеки node-i18n-x",
+    "try these links:": "Попробуйте эти ссылки:",
+    "default lang": "Язык по-умолчанию",
+    "manually set default lang": "Ручная установка языка по-умолчанию",
+    "russian lang": "Русская локализация",
+    "russian lang domain": "Русский язык на субдомене",
+    "default domain": "Базовый домен",
+    "current locale:": "Текущая локаль:",
+    "another path": "Второй каталог",
+    "another path ru": "Второй каталог, русский язык"
+}

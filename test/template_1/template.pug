@@ -1,0 +1,25 @@
+doctype html
+html(lang= __('lang'))
+    head
+        title= __('title')
+
+    body
+        h1= __('node-i18n-x test page')
+        h2 #{__('current locale:')} #{locale}
+
+        h2= __('try these links:')
+        ol
+            li
+                a(href="/") #{__('default lang')}
+            li
+                a(href="/?lang=en") #{__('manually set default lang')}
+            li
+                a(href="/?lang=ru") #{__('russian lang')}
+            li
+                a(href="http://ru.www.localhost:3000/") #{__('russian lang domain')}
+            li
+                a(href="http://localhost:3000/") #{__('default domain')}
+            li
+                a(href="/1") #{__('another path')}
+            li
+                a(href="/1?lang=ru") #{__('another path ru')}

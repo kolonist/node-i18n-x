@@ -1,0 +1,35 @@
+{
+      "name"       : "i18n"
+    , "version"    : "0.0.1"
+    , "description": "Simple i18n middleware for Express node framework"
+    , "author"     : "Alexander Zubakov <developer@xinit.ru>"
+    , "license"    : "MIT"
+
+    , "keywords": [
+          "i18n"
+        , "internationalization"
+        , "localization"
+    ]
+
+    , "main"      : "./lib/i18n.js"
+    , "repository": {
+          "type": "git"
+        , "url" : "https://github.com/kolonist/node-i18n-x"
+    }
+
+    , "scripts": {
+        "test": "NODE_ENV=development node test/index.js"
+    }
+
+    , "dependencies": {
+          "accept-language-parser": "*"
+        , "sprintf": "*"
+        , "mkdirp" : "*"
+    }
+
+    , "devDependencies": {
+          "express"      : "*"
+        , "cookie-parser": "*"
+        , "pug"          : "2.0.0-alpha6"
+    }
+}
