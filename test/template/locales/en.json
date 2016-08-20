@@ -10,5 +10,6 @@
     "default domain": "Default domain",
     "current locale:": "Current locale:",
     "another path": "Another path",
-    "another path ru": "Another path, russian language"
+    "another path ru": "Another path, russian language",
+    "locales:": "Locales:"
 }

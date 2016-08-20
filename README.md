@@ -235,6 +235,11 @@ html(lang= __('lang'))
 ```
 
 ## `req.i18n`
+### `req.i18n.getLocales()`
+Return array of locales used by application. It is value defined in `options.locales`.
+
+**Return** *`array`* Locales.
+
 ### `req.i18n.getLocale()`
 Return current locale automatically defined by library using methods mentioned in `options.order`. It always one of `options.locales` values.
 

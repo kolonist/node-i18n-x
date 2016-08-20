@@ -10,5 +10,6 @@
     "default domain": "Базовый домен",
     "current locale:": "Текущая локаль:",
     "another path": "Второй каталог",
-    "another path ru": "Второй каталог, русский язык"
+    "another path ru": "Второй каталог, русский язык",
+    "locales:": "Языки:"
 }
