@@ -1,9 +1,15 @@
 # i18n-x
-i18n middleware for Express, inspired by [i18n-node](https://github.com/mashpie/i18n-node) and [i18n-node-2](https://github.com/jeresig/i18n-node-2) libraries.
+i18n middleware for Express, inspired by
+[i18n-node](https://github.com/mashpie/i18n-node) and
+[i18n-node-2](https://github.com/jeresig/i18n-node-2) libraries.
 
-In opposite to libraries mentioned above this one cannot be used separately but only as Express middleware.
+In opposite to libraries mentioned above this one cannot be used separately but
+only as Express middleware.
 
-This library is minimalistic and easy to use alternative to libraries mentioned above with ability to dinamically change directory with localization files (e.g. if you have several independant modules and each has own templates and own locale files).
+This library is minimalistic and easy to use alternative to libraries mentioned
+above with ability to dinamically change directory with localization files
+(e.g. if you have several independant modules and each has own templates and own
+locale files).
 
 # Installation
 ```bash
@@ -73,7 +79,8 @@ html(lang= __('lang'))
 ```
 
 `__()` function will be exported to templates through `res.locals.__()`.<br>
-If you need to use `__()` in your program directly, you should use `req.i18n.__()`.
+If you need to use `__()` in your program directly, you should use
+`req.i18n.__()`.
 
 ## locales/en.js:
 ```json
@@ -89,18 +96,27 @@ If you need to use `__()` in your program directly, you should use `req.i18n.__(
 
 ```
 
-You need file with the same structure named `ru.json` to contain translation for key phrases from template. If there is no such file then it will be created automatically with all keys you used in templates or in program itself using `__()` function.
+You need file with the same structure named `ru.json` to contain translation for
+key phrases from template. If there is no such file then it will be created
+automatically with all keys you used in templates or in program itself using
+`__()` function.
 
-`locales` in current application is default directory to store localization JSON files. You can change it per application in `i18n({baseDir, directory})` function  or per request using `req.i18n.setBaseDir()` and `req.i18n.setDirectory()`.
+`locales` in current application is default directory to store localization JSON
+files. You can change it per application in `i18n({baseDir, directory})`
+function  or per request using `req.i18n.setBaseDir()` and
+`req.i18n.setDirectory()`.
 
-Path to localization JSON files defined using `baseDir` and `directory` in the following way:<br>
+Path to localization JSON files defined using `baseDir` and `directory` in the
+following way:<br>
 `baseDir + directory + '/*.json'`
 
-All localization files cached by library when they are first used so you don't need to worry about file system performance.
+All localization files cached by library when they are first used so you don't
+need to worry about file system performance.
 
 # API
 ## `i18n(options)`
-This is the only function exported by `i18n-x`. Used to initialize Express middleware.
+This is the only function exported by `i18n-x`. Used to initialize Express
+middleware.
 
 ### Parameters
 #### `options`
@@ -109,6 +125,7 @@ Key-value object with the following optional keys:
 {
       locales       : ['en']
     , defaultLocale : 'en'
+    , jointDir      : 'locales'
     , baseDir       : '.'
     , directory     : 'locales'
     , queryParamName: 'lang'
@@ -131,11 +148,30 @@ Key-value object with the following optional keys:
 `array` containing `strings` with locales your application supports.<br>
 **Default**: `['en']`
 
-The only parameter you really need to start wotking with the library. Provided values can be used as values of corresponding cookies, query params, subdomains, etc. You also need localization JSON files with names from this array and `.json` extention.
+The only parameter you really need to start wotking with the library. Provided
+values can be used as values of corresponding cookies, query params, subdomains,
+etc. You also need localization JSON files with names from this array and
+`.json` extention.
 
 ##### `defaultLocale`
-`string` containing locale to use when other locale is not provided to your application or can't be defined for some reason.<br>
+`string` containing locale to use when other locale is not provided to your
+application or can't be defined for some reason.<br>
 **Default**: `'en'`
+
+##### `jointDir`
+`string` containing directory with localization files common for all
+application.<br>
+**Default**: `'locales'`
+
+This directory will be read and cached at the start of the application when
+library initialized and it cannot be changed later. Use it to localize common
+parts of application, e.g. main menu or footer.
+
+If you use the same localization string in this common file and in unit
+specific file defined by `baseDir` and `directory` then value from specific
+file will be used.
+
+If this directory or file for some language not exists then it will be ignored.
 
 ##### `baseDir`
 `string` containing base directory for constructing localization file path<br>
@@ -146,6 +182,7 @@ Path to localization JSON files defined using `options.baseDir` and `options.dir
 path = require('path');
 path.join(options.baseDir, options.directory, `${locale}.json`
 ```
+
 where `locale` is one of `options.locales`.<br>
 If directory or filename not exists then it will be created by this library.
 
@@ -157,7 +194,8 @@ See `baseDir` description above to know how Path to localization files
 defined.
 
 ##### `queryParamName`
-`string` containing query string parameter (e.g. `?lang=ru`) to define localization<br>
+`string` containing query string parameter (e.g. `?lang=ru`) to define
+localization<br>
 **Default**: `'lang'`
 
 This parameter will be automatically used by library to define current locale.
@@ -166,13 +204,17 @@ This parameter will be automatically used by library to define current locale.
 `string` containing name of cookie to define localization<br>
 **Default**: `'lang'`
 
-This parameter will be automatically used by library to define current locale. Note that you need to load special Express middleware to work with cookies before using this library.
+This parameter will be automatically used by library to define current locale.
+Note that you need to load special Express middleware to work with cookies
+before using this library.
 
 ##### `sessionVarName`
 `string` containing name of session variable to define localization<br>
 **Default**: `'lang'`
 
-This parameter will be automatically used by library to define current locale. You probably need Express middleware to work with sessions to be loaded before yhis library.
+This parameter will be automatically used by library to define current locale.
+You probably need Express middleware to work with sessions to be loaded before
+this library.
 
 ##### `envVarName`
 `string` containing name of environment variable to define localization<br>
@@ -181,12 +223,14 @@ This parameter will be automatically used by library to define current locale. Y
 This parameter will be automatically used by library to define current locale.
 
 ##### `json_space`
-`[integer, string]` contain third parameter of `JSON.stringify()` function which used to store localization files<br>
+`[integer, string]` contain third parameter of `JSON.stringify()` function which
+used to store localization files<br>
 **Default**: `4`
 
 
 ##### `order`
-`array` containing `strings` to define order of checks used to define current locale<br>
+`array` containing `strings` to define order of checks used to define current
+locale<br>
 **Default**:
 ```javascript
 [
@@ -199,9 +243,16 @@ This parameter will be automatically used by library to define current locale.
 ]
 ```
 
-You can remove any of these params (or even all of them to set locale manually with `req.i18n.setLocale()` function) or place them in order you wish.
+You can remove any of these params (or even all of them to set locale manually
+with `req.i18n.setLocale()` function) or place them in order you wish.
 
-Locale will be set by first acceptable method in array. That means that for default value of `order` locale will be set by query if it exists and correct. If query parameter from `options.queryParamName` does not exists in query then locale will be set from session. If there is no session or there are no `options.sessionVarName` in session then cookie will be used and so on. If locale could not be set by any of mentioned methods then default locale (`options.defaultLocale`) will be used.
+Locale will be set by first acceptable method in array. That means that for
+default value of `order` locale will be set by query if it exists and correct.
+If query parameter from `options.queryParamName` does not exists in query then
+locale will be set from session. If there is no session or there are
+no `options.sessionVarName` in session then cookie will be used and so on. If
+locale could not be set by any of mentioned methods then default locale
+(`options.defaultLocale`) will be used.
 
 ### Example
 ```javascript
@@ -215,7 +266,8 @@ app.use(i18n({
 }));
 ```
 
-After applying middleware you can use `i18n` object in Express request object in all other middlewares:
+After applying middleware you can use `i18n` object in Express request object in
+all other middlewares:
 
 ```javascript
 app.get('/', (req, res) => {
@@ -236,26 +288,35 @@ html(lang= __('lang'))
 
 ## `req.i18n`
 ### `req.i18n.getLocales()`
-Return array of locales used by application. It is value defined in `options.locales`.
+Return array of locales used by application. It is value defined
+in `options.locales`.
 
 **Return** *`array`* Locales.
 
 ### `req.i18n.getLocale()`
-Return current locale automatically defined by library using methods mentioned in `options.order`. It always one of `options.locales` values.
+Return current locale automatically defined by library using methods mentioned
+in `options.order`. It always one of `options.locales` values.
 
 **Return** *`string`* Current locale.
 
 ### `req.i18n.setLocale(locale)`
 Allows you to set locale manually.
 
-**Param** *`string`* `locale` Locale you want to use in current request. Should be one of `options.locales`.
+**Param** *`string`* `locale` Locale you want to use in current request. Should
+be one of `options.locales`.
 
-**Return** *`boolean`* If locale was successfully set by this function call then return value is `true`. If function fails for some reason (i.e. you used string nod defined in `options.locales`) then it returns `false` and does not change locale previously defined by library.
+**Return** *`boolean`* If locale was successfully set by this function call then
+return value is `true`. If function fails for some reason (i.e. you used string
+nod defined in `options.locales`) then it returns `false` and does not change
+locale previously defined by library.
 
 ### `req.i18n.setBaseDir(dirname)`
-Set base directory for localization files. This function affects only on current request and doesn't change options set in `i18n()`.
+Set base directory for localization files. This function affects only on current
+request and doesn't change options set in `i18n()`.
 
-It's recommended that you will change only `baseDir` in your code and don't touch `directory` option. Using this function you can organise your project this manner:
+It's recommended that you will change only `baseDir` in your code and don't
+touch `directory` option. Using this function you can organise your project this
+manner:
 ```
 + root app dir/
     |- app.js
@@ -302,16 +363,22 @@ app.get('/1', (req, res) => {
 **Param** *`string`* `dirname` Directory path.
 
 ### `req.i18n.setDirectory(dirname)`
-Set trailing part of path where localization JSON files allocated. This function affects only on current request and doesn't change options set in `i18n()`.
+Set trailing part of path where localization JSON files allocated. This function
+affects only on current request and doesn't change options set in `i18n()`.
 
-Default value is `locales` and you probably don't need to change it using this function, but you can change `baseDir` instead.
+Default value is `locales` and you probably don't need to change it using this
+function, but you can change `baseDir` instead.
 
-If you want to change this directory to whole application you can do it in `i18n(options)` while middleware initialization.
+If you want to change this directory to whole application you can do it
+in `i18n(options)` while middleware initialization.
 
 **Param** *`string`* `dirname` Directory path.
 
 ### `req.i18n.__(str, params = null)`
-Translate string using `str` as key in localization file defined by current locale.
+Translate string using `str` as key in localization file defined by current
+locale.
 
 **Param** *`string`* `str` String to translate.<br>
-**Param** *`array`* `params` Array of arguments to use in `vsprintf()` function from [sprintf](https://github.com/alexei/sprintf.js) library or `null` if there is no need to additionally format string (default).
+**Param** *`array`* `params` Array of arguments to use in `vsprintf()` function
+from [sprintf](https://github.com/alexei/sprintf.js) library or `null` if there
+is no need to additionally format string (default).

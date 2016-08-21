@@ -11,8 +11,9 @@ app.use(cookieParser());
 
 // enable i18n
 app.use(i18n({
-      locales: ['en', 'ru']
-    , baseDir: path.resolve(__dirname, 'template')
+      locales : ['en', 'ru']
+    , baseDir : path.resolve(__dirname, 'template')
+    , jointDir: path.resolve(__dirname, 'locales')
 }));
 
 app.set('view engine', 'pug');

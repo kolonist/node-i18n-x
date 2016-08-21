@@ -5,8 +5,12 @@ html(lang= __('lang'))
 
     body
         h1= __('node-i18n-x test page')
-        h2 #{__('locales:')}        [ #{ getLocales() } ]
+        h2 #{__('locales:')}        #{getLocales()}
         h2 #{__('current locale:')} #{locale}
+
+        p #{__('common info')}
+        p #{__('common info 2')}
+        p #{__('unexistant value')}
 
         h2= __('try these links:')
         ol

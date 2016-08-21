@@ -1,7 +1,7 @@
 {
       "name"       : "i18n-x"
-    , "version"    : "0.0.2"
-    , "description": "Simple i18n middleware for Express node framework"
+    , "version"    : "0.1.0"
+    , "description": "i18n middleware for Express focused on simplicity and modularity (ability to change localization dir dinamically)"
     , "author"     : "Alexander Zubakov <developer@xinit.ru>"
     , "license"    : "MIT"
 
@@ -9,6 +9,9 @@
           "i18n"
         , "internationalization"
         , "localization"
+        , "express"
+        , "express.js"
+        , "expressjs"
     ]
 
     , "main"      : "./lib/i18n.js"
