@@ -82,7 +82,7 @@ html(lang= __('lang'))
 If you need to use `__()` in your program directly, you should use
 `req.i18n.__()`.
 
-## locales/en.js:
+## locales/en.json:
 ```json
 {
     "lang": "en",
