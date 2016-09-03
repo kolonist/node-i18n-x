@@ -1,6 +1,6 @@
 {
       "name"       : "i18n-x"
-    , "version"    : "0.1.0"
+    , "version"    : "0.1.1"
     , "description": "i18n middleware for Express focused on simplicity and modularity (ability to change localization dir dinamically)"
     , "author"     : "Alexander Zubakov <developer@xinit.ru>"
     , "license"    : "MIT"
@@ -14,20 +14,21 @@
         , "expressjs"
     ]
 
-    , "main"      : "./lib/i18n.js"
+    , "main": "./lib/i18n.js"
     , "repository": {
           "type": "git"
         , "url" : "https://github.com/kolonist/node-i18n-x"
     }
 
     , "scripts": {
-        "test": "NODE_ENV=development node test/index.js"
+          "test": "NODE_ENV=development node test/index.js"
     }
 
     , "dependencies": {
           "accept-language-parser": "*"
-        , "sprintf": "*"
-        , "mkdirp" : "*"
+        , "sprintf"               : "*"
+        , "mkdirp"                : "*"
+        , "flat"                  : "*"
     }
 
     , "devDependencies": {

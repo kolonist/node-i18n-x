@@ -1,0 +1,36 @@
+{
+  "name": "i18n-x",
+  "version": "0.1.1",
+  "dependencies": {
+    "accept-language-parser": {
+      "version": "1.2.0",
+      "from": "accept-language-parser@1.2.0",
+      "resolved": "https://registry.npmjs.org/accept-language-parser/-/accept-language-parser-1.2.0.tgz"
+    },
+    "flat": {
+      "version": "2.0.1",
+      "from": "flat@*",
+      "resolved": "https://registry.npmjs.org/flat/-/flat-2.0.1.tgz"
+    },
+    "is-buffer": {
+      "version": "1.1.4",
+      "from": "is-buffer@>=1.0.2 <2.0.0",
+      "resolved": "https://registry.npmjs.org/is-buffer/-/is-buffer-1.1.4.tgz"
+    },
+    "minimist": {
+      "version": "0.0.8",
+      "from": "minimist@0.0.8",
+      "resolved": "https://registry.npmjs.org/minimist/-/minimist-0.0.8.tgz"
+    },
+    "mkdirp": {
+      "version": "0.5.1",
+      "from": "mkdirp@*",
+      "resolved": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.1.tgz"
+    },
+    "sprintf": {
+      "version": "0.1.5",
+      "from": "sprintf@*",
+      "resolved": "https://registry.npmjs.org/sprintf/-/sprintf-0.1.5.tgz"
+    }
+  }
+}

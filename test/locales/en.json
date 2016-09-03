@@ -1,4 +1,11 @@
 {
     "common info": "Common info 1",
-    "common info 2": "Common info 2"
+    "common info 2": "Common info 2",
+    "test": {
+        "how": {
+            "objects": {
+                "work": "Test how objects work in localization files"
+            }
+        }
+    }
 }
