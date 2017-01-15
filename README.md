@@ -307,6 +307,11 @@ in `options.order`. It always one of `options.locales` values.
 
 **Return** *`string`* Current locale.
 
+### `req.i18n.getDefaultLocale()`
+Return default locale. Can be used in templates, e.g. to avoid creating subdomain for default locale when using domain defined locales, so you can use `ru.example.com`, `es.example.com` and just `example.com` instead of `en.example.com`. It is `options.defaultLocale` value.
+
+**Return** *`string`* Default locale.
+
 ### `req.i18n.setLocale(locale)`
 Allows you to set locale manually.
 
