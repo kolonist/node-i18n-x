@@ -123,16 +123,17 @@ middleware.
 Key-value object with the following optional keys:
 ```javascript
 {
-      locales       : ['en']
-    , defaultLocale : 'en'
-    , jointDir      : 'locales'
-    , baseDir       : '.'
-    , directory     : 'locales'
-    , queryParamName: 'lang'
-    , cookieName    : 'lang'
-    , sessionVarName: 'lang'
-    , envVarName    : 'LANG'
-    , json_space    : 4
+      locales                 : ['en']
+    , defaultLocale           : 'en'
+    , convertLocaleToLowerCase: true
+    , jointDir                : 'locales'
+    , baseDir                 : '.'
+    , directory               : 'locales'
+    , queryParamName          : 'lang'
+    , cookieName              : 'lang'
+    , sessionVarName          : 'lang'
+    , envVarName              : 'LANG'
+    , json_space              : 4
     , order: [
           'query'
         , 'session'
@@ -157,6 +158,13 @@ etc. You also need localization JSON files with names from this array and
 `string` containing locale to use when other locale is not provided to your
 application or can't be defined for some reason.<br>
 **Default**: `'en'`
+
+##### `convertLocaleToLowerCase`
+`boolean` When true then locales set from `setLocale()` functions will
+automatically be converted to lowercase. So it will always use `en.json` when
+you call `setLocale('En')`, `setLocale('eN')`, `setLocale('EN')` manually or
+some of `setLocaleFrom***()` called automatically.<br>
+**Default**: `true`
 
 ##### `jointDir`
 `string` containing directory with localization files common for all
