@@ -35,6 +35,9 @@ app.get('/1', (req, res) => {
     res.render(template, options);
 });
 
+app.get('/dumpAllStrings', (req, res) => {
+    res.send(req.i18n.dumpAllStrings())
+});
 
 app.listen(3000, () => {
     console.log('Test app listening on port 3000!');
