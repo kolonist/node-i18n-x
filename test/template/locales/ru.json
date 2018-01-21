@@ -11,5 +11,7 @@
     "current locale:": "Текущая локаль:",
     "another path": "Второй каталог",
     "another path ru": "Второй каталог, русский язык",
-    "locales:": "Языки:"
+    "locales:": "Языки:",
+    "Dump all strings": "Сбросить все строки",
+    "Dump all strings ru": "Сбросить все строки, русский язык"
 }

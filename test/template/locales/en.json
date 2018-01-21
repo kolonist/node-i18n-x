@@ -11,5 +11,7 @@
     "current locale:": "Current locale:",
     "another path": "Another path",
     "another path ru": "Another path, russian language",
-    "locales:": "Locales:"
+    "locales:": "Locales:",
+    "Dump all strings": "Dump all strings",
+    "Dump all strings ru": "Dump all strings ru"
 }
