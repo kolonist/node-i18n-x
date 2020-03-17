@@ -395,3 +395,11 @@ locale.
 **Param** *`array`* `params` Array of arguments to use in `vsprintf()` function
 from [sprintf](https://github.com/alexei/sprintf.js) library or `null` if there
 is no need to additionally format string (default).
+
+### `req.i18n.dumpAllStrings(locale)`
+Dump all strings according to provided or current locale.
+
+**Param** *[`null`, `string`]* `locale` Locale to use in translation.
+
+**Return** *`object`* Object containing kay-value pairs with key strings and
+their translations.
